@@ -661,7 +661,7 @@ def centre_auto():
         :statuscode: 409: error
     """
     logging.getLogger('HWR.MX3').info('[Centring] Auto centring method requested')
-    mxcube.diffractometer.startAutoCentring()
+    mxcube.diffractometer.start_automatic_centring()
     return Response(status=200)  # this only means the call was succesfull
 
 
@@ -675,10 +675,10 @@ def centre_3_click():
     """
     logging.getLogger('HWR.MX3').info('[Centring] 3click method requested')
 
-    if mxcube.diffractometer.currentCentringProcedure:
-        mxcube.diffractometer.cancelCentringMethod()
+    if mxcube.diffractometer.current_centring_procedure:
+        mxcube.diffractometer.cancel_centring_method()
 
-    mxcube.diffractometer.start3ClickCentring()
+    mxcube.diffractometer.start_manual_centring()
     centring_reset_click_count()
     data = {'clicksLeft': centring_clicks_left()}
     resp = jsonify(data)
@@ -695,7 +695,7 @@ def abort_centring():
         :statuscode: 409: error
     """
     logging.getLogger('HWR.MX3').info('[Centring] Abort method requested')
-    mxcube.diffractometer.cancelCentringMethod()
+    mxcube.diffractometer.cancel_centring_method()
     centring_remove_current_point()
     return Response(status=200)  # this only means the call was succesfull
 
@@ -710,7 +710,7 @@ def click():
         :statuscode: 200: no error
         :statuscode: 409: error
     """
-    if mxcube.diffractometer.currentCentringProcedure:
+    if mxcube.diffractometer.current_centring_procedure:
         params = request.data
         params = json.loads(params)
         click_position = params['clickPos']
@@ -769,7 +769,7 @@ def accept_centring():
     """
     Accept the centring position.
     """
-    mxcube.diffractometer.acceptCentring()
+    mxcube.diffractometer.accept_centring()
     return Response(status=200)
 
 
