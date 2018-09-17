@@ -107,7 +107,7 @@ def set_aperture():
     new_pos = params['diameter']
     beam_definer = beamlineutils.get_beam_definer()
     logging.getLogger('HWR').info("Changing aperture diameter to: %s" % new_pos)
-    beam_definer.moveToPosition(new_pos)
+    beam_definer.set_diameter_size(float(new_pos))
 
     return Response(status=200)
 
@@ -118,8 +118,8 @@ def get_aperture():
     ret = {}
 
     bd = beamlineutils.get_beam_definer()
-    aperture_list = aperture.getPredefinedPositionsList()
-    current_aperture = aperture.getCurrentPositionName()
+    aperture_list = aperture.get_diameter_list()
+    current_aperture = aperture.get_diameter_index()
 
     ret.update({'apertureList': aperture_list,
                 'currentAperture': current_aperture
