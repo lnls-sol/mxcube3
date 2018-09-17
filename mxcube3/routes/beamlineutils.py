@@ -79,7 +79,7 @@ def get_viewport_info():
     if mxcube.VIDEO_DEVICE and os.path.exists(mxcube.VIDEO_DEVICE):
         fmt, source_is_scalable = "MPEG1", True
 
-    video_sizes = streaming.get_available_sizes(mxcube.diffractometer.camera)
+    video_sizes = streaming.get_available_sizes(mxcube.diffractometer.camera_hwobj)
     width, height, scale = streaming.video_size()
     pixelsPerMm = mxcube.diffractometer.get_pixels_per_mm()
 

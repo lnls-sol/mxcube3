@@ -172,7 +172,7 @@ def init_sample_video(app):
     from mxcube3.video import streaming
 
     try:
-        streaming.init(app.diffractometer.camera, cmdline_options.video_device)
+        streaming.init(app.diffractometer.camera_hwobj, cmdline_options.video_device)
     except Exception as ex:
         msg = "Coult not initialize video from %s, error was: " % cmdline_options.video_device
         msg += str(ex)

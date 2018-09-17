@@ -170,8 +170,8 @@ def new_sample_video_frame_received(img, width, height, *args, **kwargs):
 
     SAMPLE_IMAGE = img
 
-    mxcube.diffractometer.camera.new_frame.set()
-    mxcube.diffractometer.camera.new_frame.clear()
+    mxcube.diffractometer.camera_hwobj.new_frame.set()
+    mxcube.diffractometer.camera_hwobj.new_frame.clear()
 
 
 def stream_video(camera_hwobj):
@@ -180,15 +180,15 @@ def stream_video(camera_hwobj):
     """
     global SAMPLE_IMAGE
 
-    mxcube.diffractometer.camera.new_frame = gevent.event.Event()
+    mxcube.diffractometer.camera_hwobj.new_frame = gevent.event.Event()
 
     try:
-        mxcube.diffractometer.camera.\
+        mxcube.diffractometer.camera_hwobj.\
             disconnect("imageReceived", new_sample_video_frame_received)
     except KeyError:
         pass
 
-    mxcube.diffractometer.camera.\
+    mxcube.diffractometer.camera_hwobj.\
         connect("imageReceived", new_sample_video_frame_received)
 
     while True:
@@ -209,7 +209,7 @@ def subscribe_to_camera():
     if streaming.VIDEO_DEVICE:
         result = Response(status=200)
     else:
-        result = Response(stream_video(mxcube.diffractometer.camera),
+        result = Response(stream_video(mxcube.diffractometer.camera_hwobj),
                           mimetype='multipart/x-mixed-replace; boundary="!>"')
 
     return result
@@ -223,7 +223,7 @@ def unsubscribe_to_camera():
         :statuscode: 200: no error
         :statuscode: 409: error
     """
-    mxcube.diffractometer.camera.streaming_greenlet.kill()
+    mxcube.diffractometer.camera_hwobj.streaming_greenlet.kill()
     return Response(status=200)
 
 
@@ -237,7 +237,7 @@ def snapshot():
     Return: 'True' if command issued succesfully, otherwise 'False'.
     """
     try:
-        mxcube.diffractometer.camera.takeSnapshot(os.path.join(os.path.dirname(
+        mxcube.diffractometer.camera_hwobj.takeSnapshot(os.path.join(os.path.dirname(
             __file__), 'snapshots/'))
         return "True"
     except Exception:
