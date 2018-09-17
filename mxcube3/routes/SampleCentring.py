@@ -20,6 +20,7 @@ from mxcube3.routes import beamlineutils
 from mxcube3.video import streaming
 
 from queue_entry import CENTRING_METHOD
+from AbstractMotor import MotorStates
 
 
 SAMPLE_IMAGE = None
@@ -612,7 +613,7 @@ def move_motor(motid, newpos):
         motor_hwobj.stop()
         return Response(status=200)
     else:
-        if motor_hwobj.getState() != 2:
+        if motor_hwobj.getState() != MotorStates.READY:
             return 'motor is already moving', 406, {'Content-Type': 'application/json',
                                                     'msg': motid + ' already moving'
                                                     }

@@ -20,6 +20,7 @@ from mxcube3.ho_mediators.beamline_setup import BeamlineSetupMediator
 from qutils import READY, RUNNING, FAILED, COLLECTED, WARNING, UNCOLLECTED, queue_to_dict
 from queue_entry import CENTRING_METHOD
 from mxcube3.routes.transportutils import to_camel, from_camel
+from AbstractMotor import MotorStates
 
 
 def last_queue_node():
@@ -540,7 +541,7 @@ def motor_position_callback(movable):
 
 
 def motor_state_callback(movable, sender=None, **kw):
-    if movable["state"] == 2:
+    if movable["state"] == MotorStates.READY:
         # Re emit the position when the motor have finished to move
         # so that we are always sure that we have sent the final position
         motor_position_callback(movable)

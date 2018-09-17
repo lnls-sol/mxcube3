@@ -7,6 +7,7 @@ import BeamlineActions from './BeamlineActionsContainer';
 import InOutSwitch2 from '../components/InOutSwitch2/InOutSwitch2';
 import LabeledValue from '../components/LabeledValue/LabeledValue';
 import MachInfo from '../components/MachInfo/MachInfo';
+import { MOTOR_STATE } from '../constants';
 
 import { sendGetAllAttributes,
          sendSetAttribute,
@@ -69,7 +70,7 @@ class BeamlineSetupContainer extends React.Component {
     let state = 'READY';
 
     const notReady = Object.values(this.props.data.motors).
-            filter((motor) => motor.state !== 2);
+            filter((motor) => motor.state !== MOTOR_STATE.READY);
 
     if (notReady.length !== 0) {
       state = 'BUSY';

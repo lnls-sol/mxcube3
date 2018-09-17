@@ -1,5 +1,6 @@
 import './SampleView.css';
 import React from 'react';
+import { MOTOR_STATE } from '../../constants';
 import OneAxisTranslationControl from './OneAxisTranslationControl';
 import { OverlayTrigger, Button, DropdownButton, MenuItem } from 'react-bootstrap';
 import 'fabric';
@@ -216,7 +217,7 @@ export default class SampleControls extends React.Component {
                   min="1" max="10"
                   step="1"
                   defaultValue={motors.zoom.position}
-                  disabled={motors.zoom.state !== 2}
+                  disabled={motors.zoom.state !== MOTOR_STATE.READY}
                   onMouseUp={this.setZoom}
                   list="volsettings"
                   name="zoomSlider"
@@ -268,7 +269,7 @@ export default class SampleControls extends React.Component {
                     step="0.1"
                     min="0" max="1"
                     defaultValue={motors.BackLight.position}
-                    disabled={motors.BackLight.state !== 2}
+                    disabled={motors.BackLight.state !== MOTOR_STATE.READY}
                     onMouseUp={(e) =>
                       this.props.sampleActions.sendMotorPosition('BackLight', e.target.value)}
                     name="backlightSlider"
@@ -302,7 +303,7 @@ export default class SampleControls extends React.Component {
                     step="0.1"
                     min="0" max="1"
                     defaultValue={motors.FrontLight.position}
-                    disabled={motors.FrontLight.state !== 2}
+                    disabled={motors.FrontLight.state !== MOTOR_STATE.READY}
                     onMouseUp={(e) =>
                       this.props.sampleActions.sendMotorPosition('FrontLight', e.target.value)}
                     name="frontLightSlider"
