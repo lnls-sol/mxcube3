@@ -176,9 +176,13 @@ def is_local_network(ip):
     return private_address == localhost_range
 
 def is_local_host():
-    localhost_list = socket.gethostbyname_ex(socket.gethostname())[2]
-    localhost_list.append("127.0.0.1")
+    localhost_list = ["127.0.0.1"]
 
-    remote_addres = remote_addr()
+    try:
+        localhost_list.extend(socket.gethostbyname_ex(socket.gethostname())[2])
 
-    return remote_addres in localhost_list or is_local_network(remote_addres)
+        remote_address = remote_addr()
+    except:
+        remote_address = "127.0.0.1"
+
+    return remote_address in localhost_list or is_local_network(remote_addres)
