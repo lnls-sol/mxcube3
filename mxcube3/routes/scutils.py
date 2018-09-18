@@ -166,10 +166,10 @@ def mount_sample(beamline_setup_hwobj,
                     msg = "Manual centring used, waiting for" +\
                           " user to center sample"
                     log.warning(msg)
-                    dm.startCentringMethod(dm.MANUAL3CLICK_MODE)
+                    dm.start_manual_centring()
                 elif centring_method in [CENTRING_METHOD.LOOP,
                                          CENTRING_METHOD.FULLY_AUTOMATIC]:
-                    dm.startCentringMethod(dm.C3D_MODE)
+                    dm.start_automatic_centring()
 
                     if mxcube.AUTO_MOUNT_SAMPLE:
                         dm.acceptCentring()
@@ -180,7 +180,7 @@ def mount_sample(beamline_setup_hwobj,
 
                     log.warning(msg)
                 else:
-                    dm.start_centring_method(dm.MANUAL3CLICK_MODE)
+                    dm.start_manual_centring()
 
                 logging.getLogger('user_level_log').info("Centring ...")
                 centring_result = async_result.get()
@@ -219,8 +219,7 @@ def mount_sample_clean_up(sample):
 
             if res and mxcube.CENTRING_METHOD == CENTRING_METHOD.LOOP:
                 logging.getLogger('HWR').info('Starting autoloop centring ...')
-                C3D_MODE = mxcube.diffractometer.C3D_MODE
-                mxcube.diffractometer.startCentringMethod(C3D_MODE)
+                mxcube.diffractometer.start_automatic_centring()
             elif not mxcube.sample_changer.getLoadedSample():
                 set_current_sample(None)
         else:
