@@ -560,7 +560,7 @@ class DuoStateHOMediator(HOMediatorBase):
 
 
     def commands(self):
-        cmds = ["In", "Out"]
+        cmds = ["Out", "In"]
 
         if isinstance(self._ho, MicrodiffInOut.MicrodiffInOut):
             cmds = ["Open", "Close"]
