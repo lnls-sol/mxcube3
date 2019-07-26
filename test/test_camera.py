@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-#vim /opt/mxcube3/mxcube.log
-
+# Use these command in python shell to keep polling imgs
 import os, sys
 from HardwareRepository import HardwareRepository as hwr
 
@@ -9,32 +8,17 @@ from HardwareRepository import HardwareRepository as hwr
 fname = '/opt/mxcube3/mxcube3/HardwareRepository/'
 hwr.addHardwareObjectsDirs([os.path.join(fname, 'HardwareObjects')])
 
-#from mxcube3 import server
-
 # Path to xmls
 my_hwr = hwr.HardwareRepository('/opt/mxcube3/test/HardwareObjectsMockup.xml/')
 my_hwr.connect()
 print('my_hwr = ' + str(my_hwr))
 
-print('qt')
-from PyQt4.QtGui import QApplication
-app = QApplication([])
-print('qt ok')
-
 # Load camera ho by xml
-print('Loading camera ho')
-my_hwr.getHardwareObject('md_camera')
+ho_cam = my_hwr.getHardwareObject('md_camera')
 print('Loaded camera ho')
+print('type(ho_cam) = ' + str(ho_cam))
 
-# To make "from HardwareRepository import ..." possible
-#fname = os.path.join('.', 'mxcube3')
-#sys.path.insert(0, fname)
+error_cam = ho_cam.getCameraImage()
+print('error = ' + str(error_cam))
 
-## Beamline
-#from HardwareRepository import HardwareRepository as hwr
-from mxcube3 import blcontrol
-
-#hwr_xml_dir = os.path.join('/opt/mxcube3/test/', 'HardwareObjects.xml/')
-#blcontrol.init(hwr)
-
-#blcontrol.get_hwo('beamline-setup')
+print('ho_cam.imgArray = ' + str(ho_cam.imgArray))
