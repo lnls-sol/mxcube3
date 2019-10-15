@@ -20,7 +20,7 @@ var config = {
   output: {
     path: path.resolve(__dirname, 'mxcube3','static'),
     filename: '[name].js', 
-    publicPath: '' 
+    publicPath: '/mxcube/' 
   },
   devServer: {
     compress: true,
