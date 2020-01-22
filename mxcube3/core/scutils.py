@@ -321,7 +321,7 @@ def mount_sample_clean_up(sample):
             if (
                 res
                 and mxcube.CENTRING_METHOD == CENTRING_METHOD.LOOP
-                and blcontrol.beamline.diffractometer.in_kappa_mode()
+                and blcontrol.beamline.diffractometer.kappa
             ):
                 msg = "Starting autoloop centring ..."
                 logging.getLogger("MX3.HWR").info(msg)
