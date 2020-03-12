@@ -238,7 +238,6 @@ Reset
                     max="10"
                     step="1"
                     defaultValue={motors.zoom.position}
-                    disabled={motors.zoom.state !== MOTOR_STATE.READY}
                     onMouseUp={this.setZoom}
                     list="volsettings"
                     name="zoomSlider"
