@@ -171,13 +171,13 @@ def init_signals():
 
         @utils.RateLimited(10)
         def light_pos_cb(pos, actuator_name=actuator_name, **kw):
-            movable = utils.get_movable_state_and_position(motor)
+            movable = utils.get_movable_state_and_position(actuator_name)
 
             if movable:
-                signals.motor_position_callback(movable[motor])
+                signals.motor_position_callback(movable[actuator_name])
             else:
                 logging.getLogger("MX3.HWR").exception(
-                    "Could not call position callback for %s" % motor
+                    "Could not call position callback for %s" % actuator_name
                 )
 
         def light_state_cb(state, actuator_name=actuator_name, **kw):
