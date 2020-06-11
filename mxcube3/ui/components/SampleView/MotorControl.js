@@ -56,14 +56,14 @@ export default class MotorControl extends React.Component {
         <div className="col-sm-12">
           <MotorInput
             save={save}
-            value={focus.position}
+            value={phiz.position}
             saveStep={saveStep}
-            step={focusStep}
-            motorName="Focus"
+            step={phizStep}
+            motorName="PhiZ"
             label="X:"
             suffix="mm"
             decimalPoints="3"
-            state={focus.state}
+            state={phiz.state}
             stop={stop}
             disabled={this.props.motorsDisabled}
           />
@@ -86,14 +86,14 @@ export default class MotorControl extends React.Component {
         <div className="col-sm-12">
           <MotorInput
             save={save}
-            value={phiz.position}
+            value={focus.position}
             saveStep={saveStep}
-            step={phizStep}
-            motorName="PhiZ"
+            step={focusStep}
+            motorName="Focus"
             label="Z:"
             suffix="mm"
             decimalPoints="3"
-            state={phiz.state}
+            state={focus.state}
             stop={stop}
             disabled={this.props.motorsDisabled}
           />
