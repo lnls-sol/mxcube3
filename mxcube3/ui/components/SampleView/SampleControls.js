@@ -235,7 +235,7 @@ Reset
                     type="range"
                     id="zoom-control"
                     min="1"
-                    max="10"
+                    max="8"
                     step="1"
                     defaultValue={motors.zoom.position}
                     disabled={motors.zoom.state !== MOTOR_STATE.READY}
@@ -243,7 +243,7 @@ Reset
                     list="volsettings"
                     name="zoomSlider"
                   />
-                10
+                8
                 </span>
 )}
             >
