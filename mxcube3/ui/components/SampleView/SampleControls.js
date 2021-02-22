@@ -291,9 +291,9 @@ Reset
                       style={{ top: '20px' }}
                       className="bar"
                       type="range"
-                      step="0.1"
+                      step="100"
                       min="0"
-                      max="1"
+                      max="20000"
                       defaultValue={motors.BackLight.position}
                       disabled={motors.BackLight.state !== MOTOR_STATE.READY}
                       onMouseUp={e => this.props.sampleActions.sendMotorPosition('BackLight', e.target.value)}
@@ -318,7 +318,8 @@ Reset
                 title="Front On/Off"
                 className="fa fa-lightbulb-o sample-controll"
                 onClick={this.toggleFrontLight}
-                active={motors.FrontLightSwitch.position === 1}
+                active={false}
+	        disabled={true}
               />
               <OverlayTrigger
                 trigger="click"
@@ -329,9 +330,9 @@ Reset
                     <input
                       className="bar"
                       type="range"
-                      step="0.1"
+                      step="100"
                       min="0"
-                      max="1"
+                      max="20000"
                       defaultValue={motors.FrontLight.position}
                       disabled={motors.FrontLight.state !== MOTOR_STATE.READY}
                       onMouseUp={e => this.props.sampleActions.sendMotorPosition('FrontLight', e.target.value)}
