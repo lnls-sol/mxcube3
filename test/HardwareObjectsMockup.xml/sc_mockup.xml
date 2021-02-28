@@ -1,3 +1,6 @@
 <equipment class="LNLS.Staubli.StaubliSC">
 	<!-- SC3 commands and channels -->
+	<channel type = "epics" name = "power">MXROB:Staubli2:Power</channel>
+	<channel type = "epics" name = "mount">MXROB:Staubli2:SetLoopSample</channel>
+	<channel type = "epics" name = "getSample">MXROB:Staubli2:GetLoop</channel>
 </equipment>

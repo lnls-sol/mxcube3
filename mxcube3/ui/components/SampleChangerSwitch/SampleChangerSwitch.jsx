@@ -8,6 +8,7 @@ export default class SampleChangerSwitch extends React.Component {
     this.powerOn = this.powerOn.bind(this);
     this.powerOff = this.powerOff.bind(this);
     this.onRightLinkClick = this.onRightLinkClick.bind(this);
+    this.kill = this.kill.bind(this);
   }
 
 
@@ -29,6 +30,11 @@ export default class SampleChangerSwitch extends React.Component {
     this.refs.overlay.hide();
   }
 
+  kill() {
+    this.props.onSave('kill');
+    console.log('TESTE\n\n\n\n\n\n\n');
+    this.refs.overlay.hide();
+  }
 
   render() {
     let msgBgStyle = 'warning';
@@ -44,6 +50,8 @@ export default class SampleChangerSwitch extends React.Component {
       btn = <Button block bsSize="small" onClick={this.powerOn}>{this.props.offText}</Button>;
     } else if (this.props.data === 'READY') {
       btn = <Button block bsSize="small" onClick={this.powerOff}>{this.props.onText}</Button>;
+    } else if (this.props.data === 'LOADING'|| this.props.data ==='UNLOADING') {
+      btn = <Button block bsSize="small" onClick={this.kill}>{this.props.killText}</Button>;
     }
 
     const msgLabelStyle = { display: 'block', fontSize: '100%',
@@ -76,6 +84,7 @@ export default class SampleChangerSwitch extends React.Component {
 SampleChangerSwitch.defaultProps = {
   onText: 'PowerOff',
   offText: 'PowerOn',
+  killText: 'Kill',
   labelText: '',
   pkey: undefined,
   onSave: undefined,
