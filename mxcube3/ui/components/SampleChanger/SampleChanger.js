@@ -130,6 +130,7 @@ export class SampleChangerTreeItem extends React.Component {
   }
 
   loadSample() {
+    console.log(this.props);
     this.toggleDropdown();
     this.props.load({
       sampleID: this.props.label,
@@ -241,7 +242,8 @@ export default class SampleChanger extends React.Component {
         dm: node.id,
         load: this.props.load,
         status: node.status,
-        unload: this.props.unload
+        unload: this.props.unload,
+        abort: this.props.abort
       });
   }
 
@@ -275,7 +277,7 @@ Unload
       current = (<div style={{ marginTop: '1em', marginBottom: '1em' }} />);
     }
 
-    if (this.props.state === 'MOVING') {
+    if (this.props.state === 'MOVING' || this.props.state === 'LOADING' || this.props.state === 'UNLOADING') {
       abortButton = (
         <Button bsStyle="default" className="abortButton" onClick={this.abort}>
           <Glyphicon glyph="stop" />

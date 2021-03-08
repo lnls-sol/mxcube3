@@ -11,9 +11,7 @@ export default class SampleChangerState extends React.Component {
 
     if (this.props.state === 'READY') {
       titleBackground = 'success';
-    } else if (this.props.state === 'MOVING') {
-      titleBackground = 'warning';
-    } else if (this.props.state === 'LOADING') {
+    } else if (this.props.state === 'MOVING' || this.props.state === 'LOADING') {
       titleBackground = 'warning';
     } else if (this.props.state === 'DISABLED') {
       titleBackground = 'danger';

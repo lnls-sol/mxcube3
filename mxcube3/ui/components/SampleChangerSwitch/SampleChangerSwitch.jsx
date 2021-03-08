@@ -20,7 +20,6 @@ export default class SampleChangerSwitch extends React.Component {
 
   powerOn() {
     this.props.onSave('powerOn');
-
     this.refs.overlay.hide();
   }
 
@@ -32,7 +31,7 @@ export default class SampleChangerSwitch extends React.Component {
 
   kill() {
     this.props.onSave('kill');
-    console.log('TESTE\n\n\n\n\n\n\n');
+    console.log(this.props);
     this.refs.overlay.hide();
   }
 
@@ -50,7 +49,7 @@ export default class SampleChangerSwitch extends React.Component {
       btn = <Button block bsSize="small" onClick={this.powerOn}>{this.props.offText}</Button>;
     } else if (this.props.data === 'READY') {
       btn = <Button block bsSize="small" onClick={this.powerOff}>{this.props.onText}</Button>;
-    } else if (this.props.data === 'LOADING'|| this.props.data ==='UNLOADING') {
+    } else if (this.props.data === 'LOADING' || this.props.data === 'UNLOADING') {
       btn = <Button block bsSize="small" onClick={this.kill}>{this.props.killText}</Button>;
     }
 
@@ -64,6 +63,7 @@ export default class SampleChangerSwitch extends React.Component {
           rootClose
           trigger="click"
           placement="bottom"
+          abort={this.props.abort}
           overlay={(<Popover id={`${this.props.labelText} popover`}>{btn}</Popover>)}
         >
           <div onContextMenu={this.onRightLinkClick}>
