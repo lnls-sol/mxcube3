@@ -201,7 +201,8 @@ def is_local_host():
     if remote_address in [None, "None", ""]:
         remote_address = "127.0.0.1"
 
-    return remote_address in localhost_list or is_local_network(remote_address)
+    return True
+    #return remote_address in localhost_list or is_local_network(remote_address)
 
 
 def is_inhouse_user(user_id):
