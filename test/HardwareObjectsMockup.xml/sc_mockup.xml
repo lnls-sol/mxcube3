@@ -3,5 +3,48 @@
 	<channel type = "epics" name = "power">MNC:B:ROBCS801:Power</channel>
 	<channel type = "epics" name = "mount">MNC:B:ROBCS801:SetLoopSample</channel>
 	<channel type = "epics" name = "getSample">MNC:B:ROBCS801:GetLoop</channel>
-        <channel type = "epics" name = "getPilatusCover">MNC:B:RIO01:9474F:bo3</channel>
+        
+	<channel type = "epics" name = "kill">MNC:B:ROBPLC01:MoveAuthorization</channel>
+
+	<channel type = "epics" name = "getSafetyCRIO_Bo0">MNC:B:RIO01:9474F:bo0</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bo1">MNC:B:RIO01:9474F:bo1</channel>
+
+	<channel type = "epics" name = "getSafetyCRIO_Bi1">MNC:B:RIO01:9425:bi1</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi2">MNC:B:RIO01:9425:bi2</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi4">MNC:B:RIO01:9425:bi4</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi5">MNC:B:RIO01:9425:bi5</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi6">MNC:B:RIO01:9425:bi6</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi7">MNC:B:RIO01:9425:bi7</channel>
+
+	<channel type = "epics" name = "getSafetyPPS">MNC:B:ROBPLC01:PPSStatus</channel>
+	<channel type = "epics" name = "getSafetyModbus">MNC:B:ROBPLC01:ModbusStatus</channel>
+	
+	<channel type = "epics" name = "getPilatusCover">MNC:B:RIO01:9425B:bi17</channel>
+	<channel type = "epics" name = "setPilatusCover">MNC:B:RIO01:ToggleDetCover</channel>
+	
+	<channel type = "epics" name = "getSafetyPB03">MNC:B:PB03:SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB04">MNC:B:PB04:SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB05">MNC:B:PB05:SAFETYINPOS:RBV</channel>
+	
+	<channel type = "epics" name = "posPB03_BeamStopper">MNC:B:PB03:m8</channel>
+	<channel type = "epics" name = "posPB04_Z">MNC:B:PB04:m5</channel>
+	<channel type = "epics" name = "posPB05_Z">MNC:B:PB05:m3</channel>
+	<channel type = "epics" name = "posPB05_X">MNC:B:PB05:m1</channel>
+	<channel type = "epics" name = "posPB05_Y">MNC:B:PB05:m2</channel>
+	<channel type = "epics" name = "posPB05_SampleZ">MNC:B:PB05:m4</channel>
+	<channel type = "epics" name = "posPB05_SampleY">MNC:B:PB05:m5</channel>
+	<channel type = "epics" name = "posPB05_AirBearing">MNC:B:PB05:m8</channel>
+
+	<channel type = "epics" name = "getSafetyPB03_Ux">MNC:B:PB03:AXIS_4_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB03_Wedge">MNC:B:PB03:AXIS_3_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB03_Ry">MNC:B:PB03:AXIS_2_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB03_BeamStopper">MNC:B:PB03:AXIS_8_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB04_Z">MNC:B:PB04:AXIS_5_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB05_Z">MNC:B:PB05:AXIS_3_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB05_X">MNC:B:PB05:AXIS_1_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB05_Y">MNC:B:PB05:AXIS_2_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB05_SampleZ">MNC:B:PB05:AXIS_4_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB05_SampleY">MNC:B:PB05:AXIS_5_SAFETYINPOS:RBV</channel>
+	<channel type = "epics" name = "getSafetyPB05_AirBearing">MNC:B:PB05:AXIS_8_SAFETYINPOS:RBV</channel>
+	
 </equipment>
