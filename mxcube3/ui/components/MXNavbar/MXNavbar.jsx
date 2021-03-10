@@ -38,7 +38,7 @@ export default class MXNavbar extends React.Component {
             <NavItem eventKey={2}>Data collection</NavItem>
           </LinkContainer>
           <LinkContainer to="/samplechanger">
-            <NavItem eventKey={3}>SC tools</NavItem>
+            <NavItem eventKey={3} disabled>SC tools</NavItem>
           </LinkContainer>
           <LinkContainer to="/logging">
             <NavItem eventKey={4}>System log</NavItem>
