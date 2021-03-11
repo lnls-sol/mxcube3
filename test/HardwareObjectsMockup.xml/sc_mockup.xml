@@ -9,12 +9,12 @@
 	<channel type = "epics" name = "getSafetyCRIO_Bo0">MNC:B:RIO01:9474F:bo0</channel>
 	<channel type = "epics" name = "getSafetyCRIO_Bo1">MNC:B:RIO01:9474F:bo1</channel>
 
-	<channel type = "epics" name = "getSafetyCRIO_Bi1">MNC:B:RIO01:9425:bi1</channel>
-	<channel type = "epics" name = "getSafetyCRIO_Bi2">MNC:B:RIO01:9425:bi2</channel>
-	<channel type = "epics" name = "getSafetyCRIO_Bi4">MNC:B:RIO01:9425:bi4</channel>
-	<channel type = "epics" name = "getSafetyCRIO_Bi5">MNC:B:RIO01:9425:bi5</channel>
-	<channel type = "epics" name = "getSafetyCRIO_Bi6">MNC:B:RIO01:9425:bi6</channel>
-	<channel type = "epics" name = "getSafetyCRIO_Bi7">MNC:B:RIO01:9425:bi7</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi1">MNC:B:RIO01:9425B:bi1</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi2">MNC:B:RIO01:9425B:bi2</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi4">MNC:B:RIO01:9425B:bi4</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi5">MNC:B:RIO01:9425B:bi5</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi6">MNC:B:RIO01:9425B:bi6</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bi7">MNC:B:RIO01:9425B:bi7</channel>
 
 	<channel type = "epics" name = "getSafetyPPS">MNC:B:ROBPLC01:PPSStatus</channel>
 	<channel type = "epics" name = "getSafetyModbus">MNC:B:ROBPLC01:ModbusStatus</channel>
