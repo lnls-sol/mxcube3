@@ -6,8 +6,8 @@
         
 	<channel type = "epics" name = "kill">MNC:B:ROBPLC01:MoveAuthorization</channel>
 
-	<channel type = "epics" name = "getSafetyCRIO_Bo0">MNC:B:RIO01:9474F:bo0</channel>
-	<channel type = "epics" name = "getSafetyCRIO_Bo1">MNC:B:RIO01:9474F:bo1</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bo0">MNC:B:RIO01:9474F:bo0_RBV</channel>
+	<channel type = "epics" name = "getSafetyCRIO_Bo1">MNC:B:RIO01:9474F:bo1_RBV</channel>
 
 	<channel type = "epics" name = "getSafetyCRIO_Bi1">MNC:B:RIO01:9425B:bi1</channel>
 	<channel type = "epics" name = "getSafetyCRIO_Bi2">MNC:B:RIO01:9425B:bi2</channel>
