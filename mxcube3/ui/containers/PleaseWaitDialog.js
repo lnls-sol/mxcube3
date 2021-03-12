@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Modal, ProgressBar, Button } from 'react-bootstrap';
 import { setLoading } from '../actions/general';
+import { sendCommand } from '../actions/sampleChanger';
 
 export class PleaseWaitDialog extends React.Component {
   constructor(props) {
     super(props);
     this.getHideFun = this.getHideFun.bind(this);
     this.abort = this.abort.bind(this);
+    this.kill = this.kill.bind(this);
   }
 
   getTitle() {
@@ -27,6 +29,12 @@ export class PleaseWaitDialog extends React.Component {
     }
 
     return fun;
+  }
+
+  kill() {
+    sendCommand('kill');
+    window.alert('kill');
+    //    this.props.setLoadingFalse();
   }
 
   abort() {
@@ -63,11 +71,20 @@ export class PleaseWaitDialog extends React.Component {
     );
 
     if (this.props.blocking) {
-      footer = (
-        <Modal.Footer>
-          <Button onClick={this.abort}>Cancel</Button>
-        </Modal.Footer>
-      );
+      if (this.props.title === 'Sample changer in operation') {
+        footer = (
+          <Modal.Footer>
+            <Button onClick={this.props.setCommandKill}>Kill</Button>
+          </Modal.Footer>
+        );
+      }
+      else {
+        footer = (
+          <Modal.Footer>
+            <Button onClick={this.abort}>Abort</Button>
+          </Modal.Footer>
+        );
+      }
     }
 
     return footer;
@@ -123,7 +140,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     setLoadingFalse: bindActionCreators(setLoading.bind(this, false), dispatch),
-    setLoadingTrue: bindActionCreators(setLoading.bind(this, true), dispatch)
+    setLoadingTrue: bindActionCreators(setLoading.bind(this, true), dispatch),
+    setCommandKill: bindActionCreators(sendCommand.bind(this, 'kill'), dispatch)
   };
 }
 

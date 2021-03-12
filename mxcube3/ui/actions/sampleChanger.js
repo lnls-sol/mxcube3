@@ -184,6 +184,7 @@ export function sendCommand(cmdparts, args) {
       },
       credentials: 'include'
     }).then((response) => {
+      window.alert(response.hasOwnProperty());
       if (response.status >= 400) {
         dispatch(showErrorPanel(true, response.headers.get('message')));
         throw new Error(`Error while  sending command @ ${cmdparts}`);
